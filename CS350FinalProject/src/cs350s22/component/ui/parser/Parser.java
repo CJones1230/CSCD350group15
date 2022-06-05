@@ -2,13 +2,13 @@ package cs350s22.component.ui.parser;
 
 import java.io.IOException;
 
-public class Parser implements ParserConstants { // impliment other classes as needed
+public class Parser implements ParserConstants { // implement other classes as needed
 	private String command;
-	protected ParserHelper praserHelper;
+	protected A_ParserHelper parserHelper;
 	
 	
 	public Parser(A_ParserHelper parserHelper, String commandText){
-		this.praserHelper = praserHelper;
+		this.parserHelper = parserHelper;
 		this.command = commandText;
 		
 	}

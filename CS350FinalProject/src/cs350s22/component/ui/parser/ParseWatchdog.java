@@ -1,2 +1,4 @@
-package cs350s22.component.ui.parser;public class ParseWatchdog {
+package cs350s22.component.ui.parser;
+
+public class ParseWatchdog {
 }
