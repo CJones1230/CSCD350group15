@@ -7,13 +7,13 @@ public class createFunctions {
 			createActuator(leftOver);
 		}
 		else if(leftOver[1].equalsIgnoreCase("watchdog")){
-			parseWatchdog(leftOver);
+			ParseWatchdog.createWatchdog(leftOver);
 		}
 		else if(leftOver[1].equalsIgnoreCase("sensor")){
-			parseSensor(leftOver);
+			ParseSensor.createSensor(leftOver);
 		}
 		else if(leftOver[1].equalsIgnoreCase("reporter")){
-			parseReporter(leftOver);
+			ParseReporter.createReporter(leftOver);
 		}
 	}
 
