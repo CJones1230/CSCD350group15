@@ -7,11 +7,11 @@ public class ParseWatchdog {
     public static void createWatchdog(String[] command) {
 
         A_Watchdog watchdog;
-        A_WatchdogMode mode;
-        double thresholdLow;
-        double thresholdHigh;
-        double threshold;
-        int complianceFailureThreshold;
+        A_WatchdogMode mode = null;
+        double thresholdLow = 0;
+        double thresholdHigh = 0;
+        double threshold = 0;
+        int complianceFailureThreshold = 0;
         boolean grace = false;
 
         for (int i = 4; i < command.length - 4; i++) {
