@@ -1,0 +1,11 @@
+--ParseWatchdog--
+Need to set ID
+Need to set value of mode
+Resolve initialization issue
+Set proper error messages
+
+--ParseSensor--
+Not Started
+
+--ParseReporter--
+Not Started
