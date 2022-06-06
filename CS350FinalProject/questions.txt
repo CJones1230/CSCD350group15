@@ -1,3 +1,5 @@
 --ParseWatchdog--
-How to set up the threshold value that isnt given as low or high.
-Does order of low and high matter.
+Does order of low and high matter?
+
+--ParseSensor--
+What constructor am I trying to pass vaiables into? I do not see a sensor constructor that asks for speed or position.
