@@ -1,36 +1,3 @@
-<<<<<<< HEAD
-package cs350s22.component.ui.parser;
-
-public class createFunctions {
-	
-	public static void initialCreate(String[] leftOver) {
-		if(leftOver[1].equalsIgnoreCase("actuator")) {
-			createActuator(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("watchdog")){
-			ParseWatchdog.createWatchdog(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("sensor")){
-			ParseSensor.createSensor(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("reporter")){
-			ParseReporter.createReporter(leftOver);
-		}
-	}
-
-	public static void createActuator (String[] leftOver){
-		if(leftOver[1].equalsIgnoreCase("LINEAR")){
-
-		}
-		if(leftOver[1].equalsIgnoreCase("ROTARY")){
-
-		}
-
-	}
-
-
-}
-=======
 package cs350s22.component.ui.parser;
 
 public class createFunctions {
@@ -43,13 +10,13 @@ public class createFunctions {
 			getMapperInfo(leftOver);
 		}
 		else if(leftOver[1].equalsIgnoreCase("watchdog")){
-			parseWatchdog(leftOver);
+			ParseWatchdog.createWatchdog(leftOver);
 		}
 		else if(leftOver[1].equalsIgnoreCase("sensor")){
-			parseSensor(leftOver);
+			ParseSensor.createSensor(leftOver);
 		}
 		else if(leftOver[1].equalsIgnoreCase("reporter")){
-			parseReporter(leftOver);
+			ParseReporter.createReporter(leftOver);
 		}
 	}
 
@@ -149,4 +116,3 @@ public class createFunctions {
 
 
 }
->>>>>>> 08c29d96e4c592ccd6c7b48a4e28f6484f1fbdfb
