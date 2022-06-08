@@ -21,7 +21,7 @@ public class Parser implements ParserConstants { // implement other classes as n
 			case "create": ParseCreate.initialCreate(commandArray, parserHelper);
 				break;
 
-			case "build": ParseBuild.initialBuild(commandArray);
+			case "build": ParseBuild.initialBuild(commandArray, this);
 				break;
 
 			case "send": ParseSend.initialSend(commandArray, this);
