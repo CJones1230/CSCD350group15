@@ -2,23 +2,35 @@ package cs350s22.component.ui.parser;
 
 public class ParseCreate {
 	
-	public static void initialCreate(String[] leftOver) {
-		if(leftOver[1].equalsIgnoreCase("actuator")) {
-			getActuatorInfo(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("MAPPER")){
-			getMapperInfo(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("watchdog")){
-			ParseWatchdog.createWatchdog(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("sensor")){
-			ParseSensor.createSensor(leftOver);
-		}
-		else if(leftOver[1].equalsIgnoreCase("reporter")){
-			ParseReporter.createReporter(leftOver);
-		}
-	}
+	public static void initialCreate(String[] commandArray) {
+
+		switch (commandArray[1]) {
+
+			case "actuator":
+				getActuatorInfo(commandArray);
+				break;
+
+			case "mapper":
+				getMapperInfo(commandArray);
+				break;
+
+			case "watchdog":
+				ParseWatchdog.createWatchdog(commandArray);
+				break;
+
+			case "sensor":
+				ParseSensor.createSensor(commandArray);
+				break;
+
+			case "reporter":
+				ParseReporter.createReporter(commandArray);
+				break;
+
+		}// end switch
+
+	}// end method
+
+
 
 	public static void getActuatorInfo (String[] leftOver){
 		String type = null;
