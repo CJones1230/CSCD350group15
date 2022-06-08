@@ -6,4 +6,6 @@ public class ParserHelper extends A_ParserHelper
    {
       System.out.println("Welcome to your ParserHelper");
    }
+
+   public SymbolTable symbolTable = new SymbolTable<>(); // create a symbol table
 }
