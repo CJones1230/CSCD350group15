@@ -7,11 +7,12 @@ import cs350s22.support.Identifier;
 import java.util.List;
 
 public class ParseReporter {
-    public static void createReporter(String[] command){
+    public static void createReporter(String[] command, A_ParserHelper parserHelper){
 
-        A_Reporter reporter;
+        A_Reporter reporter = null;
         List<Identifier> ids = null;
         List<Identifier> groups = null;
+        Identifier reporterID = Identifier.make(command[3]);
         boolean isChange = false;
         boolean isFrequency = false;
         int reportingFrequency = 0;
@@ -76,6 +77,8 @@ public class ParseReporter {
         else {
             System.out.println("Please Enter Valid Type.");
         }
+
+        parserHelper.getSymbolTableReporter().add(reporterID, reporter);  // store ID in symbol table
 
     }// end method
 
