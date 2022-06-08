@@ -1,6 +1,6 @@
 package cs350s22.component.ui.parser;
 
-public class createFunctions {
+public class ParseCreate {
 	
 	public static void initialCreate(String[] leftOver) {
 		if(leftOver[1].equalsIgnoreCase("actuator")) {

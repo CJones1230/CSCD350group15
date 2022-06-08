@@ -22,6 +22,7 @@ public class Startup
       startup.parse("@CONFIGURE LOG \"a.txt\" DOT SEQUENCE \"b.txt\" NETWORK \"c.txt\" XML \"d.txt\"");
       
       // run your tests like this
+      startup.parse("CREATE WATCHDOG ACCELERATION myWatchdog1 MODE INSTANTANEOUS THRESHOLD LOW 1 HIGH 3");
       startup.parse("@exit");
    }
    

@@ -14,10 +14,11 @@ public class Parser implements ParserConstants { // implement other classes as n
 	}
 	public void parse() throws IOException{
 		System.out.println(command);
-		String[] stringParts = command.split(" "); // splits command on spaces, adjust as needed
+		String[] stringParts = command.toLowerCase().split(" "); // splits command on spaces, adjust as needed
 		//printStrings(stringParts);
 		if(stringParts[0].equalsIgnoreCase("create")) 
-			createFunctions.initialCreate(stringParts);
+			ParseCreate.initialCreate(stringParts);
+		/*
 		else if(stringParts[0].equalsIgnoreCase("build"))
 			buildFunctions.initialBuild(stringParts);
 		else if(stringParts[0].equalsIgnoreCase("send"))
@@ -30,6 +31,8 @@ public class Parser implements ParserConstants { // implement other classes as n
 			atCommands.initialRun();
 		else if(stringParts[0].equalsIgnoreCase("@CONFIGURE"))
 			atCommands.initialConfigure();
+
+		 */
 		else
 			System.out.println("Error: Unvalid Command");
 			
