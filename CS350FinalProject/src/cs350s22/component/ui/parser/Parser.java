@@ -24,7 +24,7 @@ public class Parser implements ParserConstants { // implement other classes as n
 			case "build": ParseBuild.initialBuild(commandArray);
 				break;
 
-			case "send": ParseSend.initialSend(commandArray);
+			case "send": ParseSend.initialSend(commandArray, this);
 				break;
 
 			/*
@@ -50,5 +50,8 @@ public class Parser implements ParserConstants { // implement other classes as n
 		for(int i = 0; i < command.length; i++)
 			System.out.println(command[i]);
 	}
-
+	public A_ParserHelper getParserHelper()
+	{
+		return this.parserHelper;
+	}
 }
