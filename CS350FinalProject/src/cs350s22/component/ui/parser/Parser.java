@@ -14,35 +14,39 @@ public class Parser implements ParserConstants { // implement other classes as n
 	}
 	public void parse() throws IOException{
 		System.out.println(command);
-		String[] stringParts = command.toLowerCase().split(" "); // splits command on spaces, adjust as needed
-		//printStrings(stringParts);
-		if(stringParts[0].equalsIgnoreCase("create")) 
-			ParseCreate.initialCreate(stringParts);
-		/*
-		else if(stringParts[0].equalsIgnoreCase("build"))
-			buildFunctions.initialBuild(stringParts);
-		else if(stringParts[0].equalsIgnoreCase("send"))
-			sendFunctions.initialSend(stringParts);
-		else if(stringParts[0].equalsIgnoreCase("@CLOCK"))
-			atCommands.initialClock();
-		else if(stringParts[0].equalsIgnoreCase("@EXIT"))
-			atCommands.initialExit();
-		else if(stringParts[0].equalsIgnoreCase("@RUN"))
-			atCommands.initialRun();
-		else if(stringParts[0].equalsIgnoreCase("@CONFIGURE"))
-			atCommands.initialConfigure();
+		String[] commandArray = command.toLowerCase().split(" "); // splits command on spaces, adjust as needed
 
-		 */
-		else
-			System.out.println("Error: Unvalid Command");
-			
-			
+		switch(commandArray[0]) {
+
+			case "create": ParseCreate.initialCreate(commandArray);
+				break;
+
+			case "build": ParseBuild.initialBuild(commandArray);
+				break;
+
+			case "send": ParseSend.initialSend(commandArray);
+				break;
+
+			/*
+			case "@clock": MetaCommands.initialClock();
+				break;
+			 */
+			case "@exit": MetaCommands.initialExit();
+				break;
+
+			case "@run": MetaCommands.initialRun();
+				break;
+
+			case "@configure": MetaCommands.initialConfigure();
+				break;
+
+			default: throw new RuntimeException("Error: Invalid Command");
+
+		}// end switch
 		
-		//if() whatever the first token is
-		
-	}
+	}// end method
 	
-	public static void printStrings(String[] command) {// prints out each token on a seperat line
+	public static void printStrings(String[] command) {// prints out each token on a seperate line
 		for(int i = 0; i < command.length; i++)
 			System.out.println(command[i]);
 	}
