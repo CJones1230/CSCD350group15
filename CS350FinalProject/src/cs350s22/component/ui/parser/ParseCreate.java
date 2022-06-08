@@ -1,5 +1,12 @@
 package cs350s22.component.ui.parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cs350s22.component.sensor.A_Sensor;
+import cs350s22.support.Identifier;
+import cs350s22.test.ActuatorPrototype;
+
 public class ParseCreate {
 	
 	public static void initialCreate(String[] commandArray, A_ParserHelper parserHelper) {
@@ -7,7 +14,7 @@ public class ParseCreate {
 		switch (commandArray[1]) {
 
 			case "actuator":
-				getActuatorInfo(commandArray);
+				getActuatorInfo(commandArray, parserHelper);
 				break;
 
 			case "mapper":
@@ -32,13 +39,17 @@ public class ParseCreate {
 
 
 
-	public static void getActuatorInfo (String[] leftOver){
+	public static void getActuatorInfo (String[] leftOver, A_ParserHelper parserHelper){
 		String type = null;
 		String actID = null;
+		
 
 		double leadin = 0.0, leadout = 0.0, relax = 0.0;
 		int vL = 0, vMin= 0, vMax= 0, initial= 0, jerkLimit= 0;
 		String[] sensorIDs = new String[1];
+		List<Identifier> groups = new ArrayList<Identifier>();
+		groups.add(Identifier.make("TestGroupFromActuator"));
+		ArrayList<Identifier> sensorID = new ArrayList<Identifier>();
 		if(leftOver[2].equalsIgnoreCase("LINEAR") || leftOver[2].equalsIgnoreCase("ROTARY")){
 			type = leftOver[2]; // gets the type of actuator
 			actID = leftOver[3]; // gets the name of the actuatoc
@@ -66,6 +77,7 @@ public class ParseCreate {
 			sensorIDs = new String[count];
 			for( i = 1; i <= sensorIDs.length; i++ ){
 				sensorIDs[i - 1] = leftOver[ pos + i];
+				sensorID.add(Identifier.make(leftOver[pos+i]));
 			}
 		}
 		if(leftOver[pos2 + 1 ].equalsIgnoreCase("ACCELERATION")) {// gets information after sensors
@@ -85,7 +97,9 @@ public class ParseCreate {
 				"val min: " + vMin + ", val max: " + vMax + ", Initial: " + initial +", jerkLimit: " + jerkLimit);
 
 		 */
-
+		List<A_Sensor> sensorsL =  parserHelper.getSymbolTableSensor().get(sensorID, null);
+		ActuatorPrototype newAct = new ActuatorPrototype(Identifier.make(actID), groups , leadin, leadout, relax, vL, initial, vMin, vMax, jerkLimit, sensorsL);
+		parserHelper.getSymbolTableActuator().add(Identifier.make(actID), newAct);
 
 	}// end of getInfor function
 
