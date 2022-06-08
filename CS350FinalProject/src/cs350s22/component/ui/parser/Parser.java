@@ -14,11 +14,11 @@ public class Parser implements ParserConstants { // implement other classes as n
 	}
 	public void parse() throws IOException{
 		System.out.println(command);
-		String[] commandArray = command.toLowerCase().split(" "); // splits command on spaces, adjust as needed
+		String[] commandArray = command.trim().toLowerCase().split(" "); // splits command on spaces, adjust as needed
 
 		switch(commandArray[0]) {
 
-			case "create": ParseCreate.initialCreate(commandArray);
+			case "create": ParseCreate.initialCreate(commandArray, parserHelper);
 				break;
 
 			case "build": ParseBuild.initialBuild(commandArray);
