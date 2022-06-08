@@ -2,12 +2,14 @@ package cs350s22.component.ui.parser;
 
 import cs350s22.component.sensor.watchdog.*;
 import cs350s22.component.sensor.watchdog.mode.*;
+import cs350s22.support.Identifier;
 
 public class ParseWatchdog {
-    public static void createWatchdog(String[] command) {
+    public static void createWatchdog(String[] command, A_ParserHelper parserHelper) {
 
-        A_Watchdog watchdog;
+        A_Watchdog watchdog = null;
         A_WatchdogMode mode = null;
+        Identifier watchdogID = Identifier.make(command[3]);
         double thresholdLow = 0;
         double thresholdHigh = 0;
         double threshold = 0;
@@ -114,6 +116,8 @@ public class ParseWatchdog {
 
             default: System.out.println("Please Enter a Valid Type.");
         }// end switch
+
+        parserHelper.getSymbolTableWatchdog().add(watchdogID, watchdog);  // store ID in symbol table
 
     }// end method
 
