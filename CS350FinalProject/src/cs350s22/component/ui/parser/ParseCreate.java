@@ -2,7 +2,7 @@ package cs350s22.component.ui.parser;
 
 public class ParseCreate {
 	
-	public static void initialCreate(String[] commandArray) {
+	public static void initialCreate(String[] commandArray, A_ParserHelper parserHelper) {
 
 		switch (commandArray[1]) {
 
@@ -15,15 +15,15 @@ public class ParseCreate {
 				break;
 
 			case "watchdog":
-				ParseWatchdog.createWatchdog(commandArray);
+				ParseWatchdog.createWatchdog(commandArray, parserHelper);
 				break;
 
 			case "sensor":
-				ParseSensor.createSensor(commandArray);
+				ParseSensor.createSensor(commandArray, parserHelper);
 				break;
 
 			case "reporter":
-				ParseReporter.createReporter(commandArray);
+				ParseReporter.createReporter(commandArray, parserHelper);
 				break;
 
 		}// end switch
