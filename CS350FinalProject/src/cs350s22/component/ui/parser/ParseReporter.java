@@ -4,14 +4,16 @@ import cs350s22.component.sensor.reporter.A_Reporter;
 import cs350s22.component.sensor.reporter.ReporterChange;
 import cs350s22.component.sensor.reporter.ReporterFrequency;
 import cs350s22.support.Identifier;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParseReporter {
     public static void createReporter(String[] command, A_ParserHelper parserHelper){
 
         A_Reporter reporter = null;
-        List<Identifier> ids = null;
-        List<Identifier> groups = null;
+        List<Identifier> ids = new ArrayList<Identifier>();
+        List<Identifier> groups = new ArrayList<Identifier>();
         Identifier reporterID = Identifier.make(command[3]);
         boolean isChange = false;
         boolean isFrequency = false;
@@ -37,9 +39,7 @@ public class ParseReporter {
 
                         while(command[j] != "groups" || command[j] != "frequency" || command[j] != "delta") {
 
-                            Identifier id = null;
-                            id.make(command[j]);
-
+                            ids.add(Identifier.make(command[j]));
 
                         }// end while loop
 
@@ -47,9 +47,7 @@ public class ParseReporter {
                     else if(command[i + 1].equals("groups")) {
                         while(command[j] != "ids" || command[j] != "frequency" || command[j] != "delta") {
 
-                            Identifier id = null;
-                            id.make(command[j]);
-
+                            groups.add(Identifier.make(command[j]));
 
                         }// end while loop
                     }
