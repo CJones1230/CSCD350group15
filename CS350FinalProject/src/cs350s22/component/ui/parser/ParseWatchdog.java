@@ -25,10 +25,10 @@ public class ParseWatchdog {
                         case "instantaneous": mode = new WatchdogModeInstantaneous();
                             break;
 
-                        case "average": mode = new WatchdogModeAverage();
+                        case "average": mode = new WatchdogModeAverage(Integer.valueOf(command[i + 2]));
                             break;
 
-                        case "standard": mode = new WatchdogModeStandardDeviation();
+                        case "standard": mode = new WatchdogModeStandardDeviation(Integer.valueOf(command[i + 3]));
                             break;
 
                         default:
