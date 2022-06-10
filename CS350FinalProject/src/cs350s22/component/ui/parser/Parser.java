@@ -12,7 +12,7 @@ public class Parser implements ParserConstants { // implement other classes as n
 		this.command = commandText;
 		
 	}
-	public void parse() throws IOException{
+	public void parse() throws IOException, ParseException{
 		System.out.println(command);
 		String[] commandArray = command.trim().toLowerCase().split(" "); // splits command on spaces, adjust as needed
 
@@ -31,13 +31,13 @@ public class Parser implements ParserConstants { // implement other classes as n
 			case "@clock": MetaCommands.initialClock();
 				break;
 			 */
-			case "@exit": MetaCommands.initialExit();
+			case "@exit": MetaCommands.initialExit(this);
 				break;
 
-			case "@run": MetaCommands.initialRun();
+			case "@run": MetaCommands.initialRun(commandArray, this);
 				break;
 
-			case "@configure": MetaCommands.initialConfigure();
+			case "@configure": MetaCommands.initialConfigure(commandArray, this);
 				break;
 
 			default: throw new RuntimeException("Error: Invalid Command");

@@ -1,6 +1,11 @@
 package cs350s22.component.ui.parser;
 
+import java.io.IOException;
+
+import cs350s22.component.logger.LoggerMessage;
+import cs350s22.component.logger.LoggerMessageSequencing;
 import cs350s22.support.Clock;
+import cs350s22.support.Filespec;
 
 public class MetaCommands {
 	public static void initialClock(String[] leftOver) {
@@ -27,13 +32,18 @@ public class MetaCommands {
 
 		
 	}
-	public static void initialExit( ) {
-		System.exit(0);
+	public static void initialExit(Parser currParser) {
+		currParser.getParserHelper().exit();
 	}
-	public static void initialRun() {
+	public static void initialRun(String[] leftOver, Parser currParser) throws ParseException, IOException {
+		currParser.getParserHelper().run(leftOver[1]);
+	}
+	public static void initialConfigure(String[] leftOver, Parser currParser) throws IOException {
+		LoggerMessage logger = LoggerMessage.getInstance();//could be wrong, just what I got from the javadoc
+		logger.initialize(new Filespec(leftOver[2]));
+		LoggerMessageSequencing logger2 = LoggerMessageSequencing.getInstance();
+		logger2.initialize((new Filespec(leftOver[5])), (new Filespec(leftOver[7])));
 		
-	}
-	public static void initialConfigure() {
-
+		
 	}
 }
