@@ -7,6 +7,7 @@ import cs350s22.support.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ParseReporter {
     public static void createReporter(String[] command, A_ParserHelper parserHelper){
@@ -37,7 +38,7 @@ public class ParseReporter {
                     int j = i + 2;
                     if (command[i + 1].equals("ids")) {
 
-                        while(command[j] != "groups" || command[j] != "frequency" || command[j] != "delta") {
+                        while(!Objects.equals(command[j], "groups") && !Objects.equals(command[j], "frequency") && !Objects.equals(command[j], "delta")) {
 
                             ids.add(Identifier.make(command[j]));
 
@@ -45,7 +46,7 @@ public class ParseReporter {
 
                     }
                     else if(command[i + 1].equals("groups")) {
-                        while(command[j] != "ids" || command[j] != "frequency" || command[j] != "delta") {
+                        while(!Objects.equals(command[j], "ids") && !Objects.equals(command[j], "frequency") && !Objects.equals(command[j], "delta")) {
 
                             groups.add(Identifier.make(command[j]));
 
