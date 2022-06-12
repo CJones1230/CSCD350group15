@@ -36,7 +36,7 @@ public class ParseSensor {
                     j = i + 1;
                     while(command.length != j && !Objects.equals(command[j], "watchdogs")) {
 
-                        parserHelper.getSymbolTableReporter();
+                        //reporters = parserHelper.getSymbolTableReporter().get(Identifier.make(command[j]));
 
                     }// end while loop
                     break;
