@@ -16,7 +16,7 @@ public class ParseWatchdog {
         int complianceFailureThreshold = 0;
         boolean grace = false;
 
-        for (int i = 4; i < command.length - 4; i++) {
+        for (int i = 4; i < command.length; i++) {
             switch (command[i]) {
 
                 case "mode":
@@ -25,10 +25,28 @@ public class ParseWatchdog {
                         case "instantaneous": mode = new WatchdogModeInstantaneous();
                             break;
 
-                        case "average": mode = new WatchdogModeAverage(Integer.valueOf(command[i + 2]));
+                        case "average":
+                            if(command[i + 2].matches("-?\\d+(\\.\\d+)?") == true) {// check if there is a value following the command
+
+                                mode = new WatchdogModeAverage(Integer.valueOf(command[i + 2]));
+                            }
+                            else {
+
+                                mode = new WatchdogModeAverage();
+                            }
                             break;
 
-                        case "standard": mode = new WatchdogModeStandardDeviation(Integer.valueOf(command[i + 3]));
+                        case "standard":
+                            if(command[i + 3].matches("-?\\d+(\\.\\d+)?") == true) {// check if there is a value following the command
+
+                                mode = new WatchdogModeStandardDeviation(Integer.valueOf(command[i + 3]));
+                            }
+                            else {
+
+                                mode = new WatchdogModeStandardDeviation();
+                            }
+
+
                             break;
 
                         default:
@@ -52,7 +70,7 @@ public class ParseWatchdog {
 
                         default:
                             if (command[i + 1].matches("-?\\d+(\\.\\d+)?") == true) { // check if value is a double
-                                threshold = Double.valueOf(command[i + 2]);
+                                threshold = Double.valueOf(command[i + 1]);
                             } else {
                                 System.out.println("Please Enter a Valid Threshold.");
                             }
