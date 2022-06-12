@@ -21,7 +21,7 @@ public class ParseReporter {
         int reportingFrequency = 0;
         int deltaThreshold = 0;
 
-        for (int i = 4; i < command.length - 4; i++) {
+        for (int i = 4; i < command.length; i++) {
             switch (command[i]) {
 
                 case "delta":
@@ -35,26 +35,30 @@ public class ParseReporter {
                     break;
 
                 case "notify":
-                    int j = i + 2;
-                    if (command[i + 1].equals("ids")) {
 
-                        while(!Objects.equals(command[j], "groups") && !Objects.equals(command[j], "frequency") && !Objects.equals(command[j], "delta")) {
+                    while(!Objects.equals(command[i + 1], "frequency") && !Objects.equals(command[i + 1], "delta")) {
+                        int j = i;
+                        switch(command[j + 1]) {
 
-                            ids.add(Identifier.make(command[j]));
+                            case "ids":
+                                while (!Objects.equals(command[j + 2], "groups") && !Objects.equals(command[j + 2], "frequency") && !Objects.equals(command[j + 2], "delta")) {
 
-                        }// end while loop
+                                    ids.add(Identifier.make(command[j + 2]));
+                                    j++;
+                                }// end while loop
+                                break;
 
-                    }
-                    else if(command[i + 1].equals("groups")) {
-                        while(!Objects.equals(command[j], "ids") && !Objects.equals(command[j], "frequency") && !Objects.equals(command[j], "delta")) {
+                            case "groups":
+                                while (!Objects.equals(command[j + 2], "ids") && !Objects.equals(command[j + 2], "frequency") && !Objects.equals(command[j + 2], "delta")) {
 
-                            groups.add(Identifier.make(command[j]));
+                                    groups.add(Identifier.make(command[j + 2]));
+                                    j++;
+                                }// end while loop
+                                break;
 
-                        }// end while loop
-                    }
-                    else {
-                        System.out.println("Please Enter Valid Command.");
-                    }
+                        }// end switch
+                        i++;
+                    }// end for loop
                     break;
 
             }// end switch
