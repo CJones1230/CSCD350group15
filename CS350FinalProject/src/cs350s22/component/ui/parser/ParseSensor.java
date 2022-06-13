@@ -1,5 +1,6 @@
 package cs350s22.component.ui.parser;
 
+import cs350s22.component.sensor.A_Sensor;
 import cs350s22.component.sensor.mapper.A_Mapper;
 import cs350s22.component.sensor.reporter.A_Reporter;
 import cs350s22.component.sensor.watchdog.A_Watchdog;
@@ -76,5 +77,18 @@ public class ParseSensor {
         parserHelper.getSymbolTableSensor().add(sensorID, sensor);  // store ID in symbol table
 
     }// end method
+
+    public static void setSensor(String[] command, A_ParserHelper parserHelper) {
+
+        A_Sensor sensor = parserHelper.getSymbolTableSensor().get(Identifier.make(command[2])); // retrieve the specified sensor from the symbol table
+
+        if (Objects.equals(command[3], "value")) {
+
+            double sensorValue = Double.valueOf(command[4]);
+            sensor.setValue(sensorValue);
+        } else {
+            throw new IllegalArgumentException("Please Enter a Value");
+        }
+    }
 
 }// end class
