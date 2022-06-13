@@ -6,11 +6,16 @@ import cs350s22.component.logger.LoggerMessage;
 import cs350s22.component.logger.LoggerMessageSequencing;
 import cs350s22.support.Clock;
 import cs350s22.support.Filespec;
+import java.time.LocalDateTime;
 
 public class MetaCommands {
 	public static void initialClock(String[] leftOver) {
 		int count = 1;
-		if(leftOver[1].trim().equalsIgnoreCase("PAUSE")){ // E1
+		if (leftOver.length == 1){
+			LocalDateTime now = LocalDateTime.now();
+			System.out.println(now);
+		}
+		else if(leftOver[1].trim().equalsIgnoreCase("PAUSE")){ // E1
 			Clock.getInstance().isActive(false);
 		}
 		else if(leftOver[1].trim().equalsIgnoreCase("RESUME")){ // E1
@@ -43,7 +48,6 @@ public class MetaCommands {
 		logger.initialize(new Filespec(leftOver[2]));
 		LoggerMessageSequencing logger2 = LoggerMessageSequencing.getInstance();
 		logger2.initialize((new Filespec(leftOver[5])), (new Filespec(leftOver[7])));
-		
 		
 	}
 }
