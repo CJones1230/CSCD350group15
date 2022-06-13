@@ -27,10 +27,9 @@ public class Parser implements ParserConstants { // implement other classes as n
 			case "send": ParseSend.initialSend(commandArray, this);
 				break;
 
-			/*
 			case "@clock": MetaCommands.initialClock();
 				break;
-			 */
+
 			case "@exit": MetaCommands.initialExit(this);
 				break;
 
