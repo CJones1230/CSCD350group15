@@ -30,6 +30,9 @@ public class Parser implements ParserConstants { // implement other classes as n
 			case "set": ParseSet.initialSet(commandArray, parserHelper);
 				break;
 
+			case "get": ParseGet.initialGet(commandArray, parserHelper);
+				break;
+
 			case "@clock": MetaCommands.initialClock(commandArray);
 				break;
 
