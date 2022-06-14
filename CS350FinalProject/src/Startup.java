@@ -64,9 +64,9 @@ public class Startup
       //startup.parse("BUILD NETWORK WITH COMPONENTS myController myActuator0 myActuator1");
 
       // Message Commands
-      startup.parse("SEND MESSAGE PING");
+      //startup.parse("SEND MESSAGE PING");
 
-      //startup.parse("SEND MESSAGE ID myActuator1 POSITION REQUEST 10");
+      startup.parse("SEND MESSAGE ID myActuator1 POSITION REQUEST 10");
       //startup.parse("SEND MESSAGE GROUPS myActuators1 myActuators2 POSITION REQUEST 20");
       //startup.parse("SEND MESSAGE ID myActuator1 GROUPS myActuators1 myActuators2 POSITION REQUEST 30");
 
