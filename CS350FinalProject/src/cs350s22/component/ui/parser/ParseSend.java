@@ -44,11 +44,17 @@ public class ParseSend {
 				}
 			}
 			CommandLineInterface cli = currParser.getParserHelper().getCommandLineInterface();
-			A_Message message = new  MessageActuatorRequestPosition(ids, Double.parseDouble(leftOver[(leftOver.length - 1)]));
-			A_Message message2 = new  MessageActuatorRequestPosition(groups, Double.parseDouble(leftOver[(leftOver.length - 1)]), 0);
-			cli.issueMessage(message);
-			cli.issueMessage(message2);
-
+			if(ids.size() > 0)
+			{	
+				A_Message message = new  MessageActuatorRequestPosition(ids, Double.parseDouble(leftOver[(leftOver.length - 1)]));
+				cli.issueMessage(message);
+			}
+			if(groups.size() > 0)
+			{
+				A_Message message2 = new  MessageActuatorRequestPosition(groups, Double.parseDouble(leftOver[(leftOver.length - 1)]), 0);
+			
+				cli.issueMessage(message2);
+			}
 		}
 		else if(leftOver[(leftOver.length - 1)].equalsIgnoreCase("REPORT"))
 		{
@@ -83,10 +89,17 @@ public class ParseSend {
 				}
 			}
 			CommandLineInterface cli = currParser.getParserHelper().getCommandLineInterface();
-			A_Message message = new  MessageActuatorReportPosition(ids);
-			A_Message message2 = new  MessageActuatorReportPosition(groups, 0);
-			cli.issueMessage(message);
-			cli.issueMessage(message2);
+			if(ids.size() > 0)
+			{
+				A_Message message = new  MessageActuatorReportPosition(ids);
+				cli.issueMessage(message);
+			}
+			if(groups.size() > 0)
+			{
+				A_Message message2 = new  MessageActuatorReportPosition(groups, 0);
+			
+				cli.issueMessage(message2);
+			}
 		}
 		else//Error output
 		{
