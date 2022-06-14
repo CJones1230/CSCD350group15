@@ -44,10 +44,11 @@ public class MetaCommands {
 		currParser.getParserHelper().run(leftOver[1]);
 	}
 	public static void initialConfigure(String[] leftOver, Parser currParser) throws IOException {
-		LoggerMessage logger = LoggerMessage.getInstance();//could be wrong, just what I got from the javadoc
-		logger.initialize(new Filespec(leftOver[2]));
-		LoggerMessageSequencing logger2 = LoggerMessageSequencing.getInstance();
-		logger2.initialize((new Filespec(leftOver[5])), (new Filespec(leftOver[7])));
+		//String defFolder = System.getProperty("java.io.dir");
+		
+		LoggerMessage.initialize(new Filespec(leftOver[2]));
+		
+		LoggerMessageSequencing.initialize((new Filespec(leftOver[5])), (new Filespec(leftOver[7])));
 		
 	}
 }
