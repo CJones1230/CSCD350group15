@@ -14,14 +14,14 @@ public class ParseSend {
 	public static void initialSend(String[] leftOver, Parser currParser) {
 		System.out.println(leftOver[1]);
 		
-		if(leftOver[2].equals("PING"))
+		if(leftOver[2].equalsIgnoreCase("PING"))
 		{
 			//SEND MESSAGE PING
 			CommandLineInterface cli = currParser.getParserHelper().getCommandLineInterface();
 			A_Message message = new MessagePing();
 			cli.issueMessage(message);
 		}
-		else if(leftOver[(leftOver.length - 2)].equals("RESULT"))
+		else if(leftOver[(leftOver.length - 2)].equalsIgnoreCase("REQUEST"))
 		{
 			//SEND MESSAGE [ids] [groups] POSITION REQUEST value
 			List<Identifier> ids = new ArrayList<Identifier>();
@@ -50,7 +50,7 @@ public class ParseSend {
 			cli.issueMessage(message2);
 
 		}
-		else if(leftOver[(leftOver.length - 1)].equals("REPORT"))
+		else if(leftOver[(leftOver.length - 1)].equalsIgnoreCase("REPORT"))
 		{
 			/*
 			List<Identifier> ids = new ArrayList<Identifier>();
