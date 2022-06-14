@@ -35,7 +35,7 @@ public class ParseSend {
 					i++;
 				}
 			}
-			if(leftOver[(i - 1)].equalsIgnoreCase("GROUPS"))
+			if(leftOver[(i - 1)].equalsIgnoreCase("GROUPS") || leftOver[i].equalsIgnoreCase("GROUPS"))
 			{
 				while(i < (leftOver.length - 3))
 				{
