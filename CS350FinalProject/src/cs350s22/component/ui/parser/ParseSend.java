@@ -21,7 +21,7 @@ public class ParseSend {
 			A_Message message = new MessagePing();
 			cli.issueMessage(message);
 		}
-		if(leftOver[(leftOver.length - 2)].equals("RESULT"))
+		else if(leftOver[(leftOver.length - 2)].equals("RESULT"))
 		{
 			//SEND MESSAGE [ids] [groups] POSITION REQUEST value
 			List<Identifier> ids = new ArrayList<Identifier>();
@@ -50,7 +50,7 @@ public class ParseSend {
 			cli.issueMessage(message2);
 
 		}
-		if(leftOver[(leftOver.length - 1)].equals("REPORT"))
+		else if(leftOver[(leftOver.length - 1)].equals("REPORT"))
 		{
 			/*
 			List<Identifier> ids = new ArrayList<Identifier>();
