@@ -89,6 +89,20 @@ public class ParseSensor {
         } else {
             throw new IllegalArgumentException("Please Enter a Value");
         }
-    }
+
+    }// end method
+
+    public static void getSensor(String[] command, A_ParserHelper parserHelper) {
+
+        A_Sensor sensor = parserHelper.getSymbolTableSensor().get(Identifier.make(command[2])); // retrieve the specified sensor from the symbol table
+
+        if (Objects.equals(command[3], "value")) {
+
+            System.out.println("Sensor value is " + sensor.getValue());
+        } else {
+            throw new IllegalArgumentException("Please Enter a valid command");
+        }
+
+    }// end method
 
 }// end class
