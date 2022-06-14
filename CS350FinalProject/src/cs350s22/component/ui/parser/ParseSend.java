@@ -37,6 +37,10 @@ public class ParseSend {
 			}
 			if(leftOver[(i - 1)].equalsIgnoreCase("GROUPS") || leftOver[i].equalsIgnoreCase("GROUPS"))
 			{
+				if(leftOver[i].equalsIgnoreCase("GROUPS"))
+				{
+					i++;
+				}
 				while(i < (leftOver.length - 3))
 				{
 					groups.add(Identifier.make(leftOver[i]));
@@ -82,6 +86,10 @@ public class ParseSend {
 			}
 			if(leftOver[(i - 1)].equalsIgnoreCase("GROUPS") || leftOver[i].equalsIgnoreCase("GROUPS"))
 			{
+				if(leftOver[i].equalsIgnoreCase("GROUPS"))
+				{
+					i++;
+				}
 				while(i < (leftOver.length - 2))
 				{
 					groups.add(Identifier.make(leftOver[i]));
