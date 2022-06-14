@@ -1,18 +1,18 @@
 package cs350s22.component.ui.parser;
 
 import java.io.IOException;
+import java.util.Date;
 
 import cs350s22.component.logger.LoggerMessage;
 import cs350s22.component.logger.LoggerMessageSequencing;
 import cs350s22.support.Clock;
 import cs350s22.support.Filespec;
-import java.time.LocalDateTime;
 
 public class MetaCommands {
 	public static void initialClock(String[] leftOver) {
 		int count = 1;
 		if (leftOver.length == 1){
-			LocalDateTime now = LocalDateTime.now();
+			Date now = new Date();
 			System.out.println(now);
 		}
 		else if(leftOver[1].trim().equalsIgnoreCase("PAUSE")){ // E1
@@ -34,7 +34,14 @@ public class MetaCommands {
 			count = Integer.parseInt(leftOver[3].trim());
 			Clock.getInstance().setRate(count);
 		}
-
+		else if(leftOver[1].trim().equalsIgnoreCase("WAIT") && leftOver[2].trim().equalsIgnoreCase("FOR")) {
+			double waitTime = Double.valueOf(leftOver[3]);
+			Clock.getInstance().waitFor(waitTime);
+		}
+		else if(leftOver[1].trim().equalsIgnoreCase("WAIT") && leftOver[2].trim().equalsIgnoreCase("UNTIL")) {
+			double waitTime = Double.valueOf(leftOver[3]);
+			Clock.getInstance().waitUntil(waitTime);
+		}
 		
 	}
 	public static void initialExit(Parser currParser) {
