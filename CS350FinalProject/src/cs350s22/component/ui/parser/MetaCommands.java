@@ -51,8 +51,8 @@ public class MetaCommands {
 		currParser.getParserHelper().run(leftOver[1]);
 	}
 	public static void initialConfigure(String[] leftOver, Parser currParser) throws IOException {
-		//String defFolder = System.getProperty("java.io.dir");
-		
+		System.getProperty("java.io.dir");
+
 		LoggerMessage.initialize(new Filespec(leftOver[2]));
 		
 		LoggerMessageSequencing.initialize((new Filespec(leftOver[5])), (new Filespec(leftOver[7])));

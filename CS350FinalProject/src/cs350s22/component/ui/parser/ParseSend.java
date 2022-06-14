@@ -90,7 +90,7 @@ public class ParseSend {
 		}
 		else//Error output
 		{
-			System.out.println("SEND MESSAGE NOT IN CORRECT FORMAT: sendFuntions");
+			throw new RuntimeException("SEND MESSAGE NOT IN CORRECT FORMAT: sendFuntions");
 		}
 	}
 }

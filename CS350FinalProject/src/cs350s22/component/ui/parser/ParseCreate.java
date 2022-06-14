@@ -108,7 +108,7 @@ public class ParseCreate {
 				"val min: " + vMin + ", val max: " + vMax + ", Initial: " + initial +", jerkLimit: " + jerkLimit);
 
 		 */
-		List<A_Sensor> sensorsL =  parserHelper.getSymbolTableSensor().get(sensorID, null);
+		List<A_Sensor> sensorsL =  parserHelper.getSymbolTableSensor().get(sensorID, true);
 		ActuatorPrototype newAct = new ActuatorPrototype(Identifier.make(actID), groups , leadin, leadout, relax, vL, initial, vMin, vMax, jerkLimit, sensorsL);
 		parserHelper.getSymbolTableActuator().add(Identifier.make(actID), newAct);
 

@@ -78,7 +78,7 @@ public class ParseReporter {
             reporter = new ReporterFrequency(ids, groups, reportingFrequency);
         }
         else {
-            System.out.println("Please Enter Valid Type.");
+            throw new RuntimeException("Please Enter Valid Type.");
         }
 
         parserHelper.getSymbolTableReporter().add(reporterID, reporter);  // store ID in symbol table

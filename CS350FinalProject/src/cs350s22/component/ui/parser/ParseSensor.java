@@ -87,7 +87,7 @@ public class ParseSensor {
             double sensorValue = Double.valueOf(command[4]);
             sensor.setValue(sensorValue);
         } else {
-            throw new IllegalArgumentException("Please Enter a Value");
+            throw new RuntimeException("Please Enter a Value");
         }
 
     }// end method
@@ -100,7 +100,7 @@ public class ParseSensor {
 
             System.out.println("Sensor value is " + sensor.getValue());
         } else {
-            throw new IllegalArgumentException("Please Enter a valid command");
+            throw new RuntimeException("Please Enter a valid command");
         }
 
     }// end method

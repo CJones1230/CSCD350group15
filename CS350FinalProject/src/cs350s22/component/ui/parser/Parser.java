@@ -13,7 +13,6 @@ public class Parser implements ParserConstants { // implement other classes as n
 		
 	}
 	public void parse() throws IOException, ParseException{
-		System.out.println(command);
 		String[] commandArray = command.trim().toLowerCase().split(" "); // splits command on spaces, adjust as needed
 
 		switch(commandArray[0]) {
