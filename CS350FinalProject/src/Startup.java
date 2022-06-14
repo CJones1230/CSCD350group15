@@ -19,10 +19,11 @@ public class Startup
       Startup startup = new Startup();
       
       // this command must come first. The filenames do not matter here
-      //startup.parse("@CONFIGURE LOG \"a.txt\" DOT SEQUENCE \"b.txt\" NETWORK \"c.txt\" XML \"d.txt\"");
+      startup.parse("@CONFIGURE LOG \"a.txt\" DOT SEQUENCE \"b.txt\" NETWORK \"c.txt\" XML \"d.txt\"");
 
       // run your tests like this
 
+      // PART 1 TESTS
       // Actuator Commands
       //startup.parse("CREATE ACTUATOR LINEAR myActuator0 ACCELERATION LEADIN 0.1 LEADOUT -0.2 RELAX 0.3 VELOCITY LIMIT 5 VALUE MIN 1 MAX 10 INITIAL 2 JERK LIMIT 3");
       //startup.parse("CREATE ACTUATOR ROTARY myActuator8 SENSORS mySensor3 ACCELERATION LEADIN 0.1 LEADOUT -0.2 RELAX 0.3 VELOCITY LIMIT 5 VALUE MIN 1 MAX 10 INITIAL 2 JERK LIMIT 3");
@@ -30,12 +31,12 @@ public class Startup
       // Mapper Commands
       //startup.parse("CREATE MAPPER myMapper EQUATION PASSTHROUGH");
 
-      //startup.parse("CREATE MAPPER myMapper EQUATION SCALE 10");
+      //startup.parse("CREATE MAPPER myMapper1 EQUATION SCALE 10");
 
-      //startup.parse("CREATE MAPPER myMapper EQUATION NORMALIZE 10 20");
+      //startup.parse("CREATE MAPPER myMapper2 EQUATION NORMALIZE 10 20");
 
-      //startup.parse("CREATE MAPPER myMapper INTERPOLATION LINEAR DEFINITION mapfile.map");
-      //startup.parse("CREATE MAPPER myMapper INTERPOLATION SPLINE DEFINITION C:/temp/definition.map");
+      //startup.parse("CREATE MAPPER myMapper3 INTERPOLATION LINEAR DEFINITION \"mapfile.map\"");
+      //startup.parse("CREATE MAPPER myMapper4 INTERPOLATION SPLINE DEFINITION \"C:/temp/definition.map\"");
 
       // Message Commands
       //startup.parse("SEND MESSAGE PING");
@@ -53,24 +54,24 @@ public class Startup
       //startup.parse("BUILD NETWORK WITH COMPONENTS myController myActuator");
 
       // Reporter Commands
-      startup.parse("CREATE REPORTER CHANGE myReporter1 NOTIFY IDS myActuator1 myActuator2 DELTA 3");
+      //startup.parse("CREATE REPORTER CHANGE myReporter1 NOTIFY IDS myActuator1 myActuator2 DELTA 3");
 
       //startup.parse("CREATE REPORTER FREQUENCY myReporter6 NOTIFY IDS myActuator1 myActuator2 GROUPS myGroup3 FREQUENCY 4");
 
       // Watchdog Commands
-      startup.parse("CREATE WATCHDOG BAND myWatchdog1 MODE INSTANTANEOUS THRESHOLD LOW 1 HIGH 3");
-      startup.parse("CREATE WATCHDOG NOTCH myWatchdog2 MODE AVERAGE 10 THRESHOLD LOW 1 HIGH 3 GRACE 4");
+      //startup.parse("CREATE WATCHDOG BAND myWatchdog1 MODE INSTANTANEOUS THRESHOLD LOW 1 HIGH 3");
+      //startup.parse("CREATE WATCHDOG NOTCH myWatchdog2 MODE AVERAGE 10 THRESHOLD LOW 1 HIGH 3 GRACE 4");
 
       //startup.parse("CREATE WATCHDOG LOW myWatchdog3 MODE STANDARD DEVIATION THRESHOLD 3 GRACE 4");
       //startup.parse("CREATE WATCHDOG HIGH myWatchdog4 MODE STANDARD DEVIATION 10 THRESHOLD 3 GRACE 4");
 
       // Sensor Commands
-      startup.parse("CREATE SENSOR POSITION mySensor8 GROUP myGroup1 REPORTERS myReporter1 WATCHDOGS myWatchdog1 myWatchdog2");
+      //startup.parse("CREATE SENSOR POSITION mySensor8 GROUP myGroup1 REPORTERS myReporter1 WATCHDOGS myWatchdog1 myWatchdog2");
       //startup.parse("CREATE SENSOR POSITION mySensor16 GROUP myGroup1 REPORTERS myReporter1 WATCHDOGS myWatchdog1 myWatchdog2 MAPPER myMapper1");
 
-      startup.parse("SET SENSOR mySensor8 VALUE 35");
+      //startup.parse("SET SENSOR mySensor8 VALUE 35");
 
-      //startup.parse("GET SENSOR mySensor VALUE");
+      //startup.parse("GET SENSOR mySensor8 VALUE");
 
       // Meta Commands
 
@@ -91,6 +92,10 @@ public class Startup
 
       // Run
       //startup.parse("@RUN myfilename.mvt");
+
+      // PART 2 TESTS
+
+
 
       // Exit
       startup.parse("@exit");
