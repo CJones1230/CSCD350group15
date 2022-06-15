@@ -49,12 +49,12 @@ public class ParseSend {
 			CommandLineInterface cli = currParser.getParserHelper().getCommandLineInterface();
 			if(ids.size() > 0)
 			{	
-				A_Message message = new  MessageActuatorRequestPosition(ids, Double.parseDouble(leftOver[(leftOver.length - 1)]));
+				A_Message message = new  MessageActuatorRequestPosition(ids, Double.valueOf(leftOver[(leftOver.length - 1)]));
 				cli.issueMessage(message);
 			}
 			if(groups.size() > 0)
 			{
-				A_Message message2 = new  MessageActuatorRequestPosition(groups, Double.parseDouble(leftOver[(leftOver.length - 1)]), 0);
+				A_Message message2 = new  MessageActuatorRequestPosition(groups, Double.valeOf(leftOver[(leftOver.length - 1)]), 0);
 			
 				cli.issueMessage(message2);
 			}
