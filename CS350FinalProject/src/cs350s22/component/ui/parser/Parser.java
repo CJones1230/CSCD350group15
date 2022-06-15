@@ -49,13 +49,15 @@ public class Parser implements ParserConstants { // implement other classes as n
 		}// end switch
 		
 	}// end method
-	
-	public static void printStrings(String[] command) {// prints out each token on a seperate line
-		for(int i = 0; i < command.length; i++)
-			System.out.println(command[i]);
-	}
+
+
+//	public static void printStrings(String[] command) {// prints out each token on a seperate line
+//		for(int i = 0; i < command.length; i++) {
+//			System.out.println(command[i]);
+//	}
 	public A_ParserHelper getParserHelper()
 	{
 		return this.parserHelper;
 	}
+
 }

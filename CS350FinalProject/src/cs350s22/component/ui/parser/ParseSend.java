@@ -12,7 +12,6 @@ import cs350s22.support.Identifier;
 
 public class ParseSend {
 	public static void initialSend(String[] leftOver, Parser currParser) {
-		System.out.println(leftOver[1]);
 		
 		if(leftOver[2].equalsIgnoreCase("PING"))
 		{
