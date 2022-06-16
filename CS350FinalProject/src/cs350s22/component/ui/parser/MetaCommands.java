@@ -1,12 +1,12 @@
 package cs350s22.component.ui.parser;
 
-import java.io.IOException;
-import java.util.Date;
-
 import cs350s22.component.logger.LoggerMessage;
 import cs350s22.component.logger.LoggerMessageSequencing;
 import cs350s22.support.Clock;
 import cs350s22.support.Filespec;
+
+import java.io.IOException;
+import java.util.Date;
 
 public class MetaCommands {
 	public static void initialClock(String[] leftOver) {

@@ -45,8 +45,6 @@ public class ParseWatchdog {
 
                                 mode = new WatchdogModeStandardDeviation();
                             }
-
-
                             break;
 
                         default:
