@@ -28,7 +28,7 @@ public class ParseSensor {
 
                 case "group":
                     j = i + 1;
-                    while(!Objects.equals(command[j], "reporters") && !Objects.equals(command[j], "watchdogs") && !Objects.equals(command[j], "mapper")) {
+                    while(command.length != j && !Objects.equals(command[j], "reporters") && !Objects.equals(command[j], "watchdogs") && !Objects.equals(command[j], "mapper")) {
 
                         groups.add(Identifier.make(command[j]));
                         j++;
@@ -98,7 +98,7 @@ public class ParseSensor {
 
         if (Objects.equals(command[3], "value")) {
 
-            System.out.println("Sensor value is " + sensor.getValue());
+            System.out.println("         | Sensor value is " + sensor.getValue());
         } else {
             throw new RuntimeException("Please Enter a valid command");
         }

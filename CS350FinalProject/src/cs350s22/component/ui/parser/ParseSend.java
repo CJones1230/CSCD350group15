@@ -54,7 +54,7 @@ public class ParseSend {
 			}
 			if(groups.size() > 0)
 			{
-				A_Message message2 = new  MessageActuatorRequestPosition(groups, Double.valeOf(leftOver[(leftOver.length - 1)]), 0);
+				A_Message message2 = new  MessageActuatorRequestPosition(groups, Double.valueOf(leftOver[(leftOver.length - 1)]), 0);
 			
 				cli.issueMessage(message2);
 			}
