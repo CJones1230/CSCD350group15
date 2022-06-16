@@ -20,10 +20,10 @@ public class Parser implements ParserConstants { // implement other classes as n
 			case "create": ParseCreate.initialCreate(commandArray, parserHelper);
 				break;
 
-			case "build": ParseBuild.initialBuild(commandArray, this);
+			case "build": ParseBuild.initialBuild(commandArray, parserHelper);
 				break;
 
-			case "send": ParseSend.initialSend(commandArray, this);
+			case "send": ParseSend.initialSend(commandArray, parserHelper);
 				break;
 
 			case "set": ParseSet.initialSet(commandArray, parserHelper);
@@ -50,11 +50,6 @@ public class Parser implements ParserConstants { // implement other classes as n
 		
 	}// end method
 
-
-//	public static void printStrings(String[] command) {// prints out each token on a seperate line
-//		for(int i = 0; i < command.length; i++) {
-//			System.out.println(command[i]);
-//	}
 	public A_ParserHelper getParserHelper()
 	{
 		return this.parserHelper;
